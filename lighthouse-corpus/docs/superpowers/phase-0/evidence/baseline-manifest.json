@@ -1,0 +1,22 @@
+{
+  "status": "unknown",
+  "node_file": "nodes_v2.jsonl",
+  "path": null,
+  "line_count": null,
+  "sha256": null,
+  "observed_at": "2026-10-18",
+  "checked_scope": "current project workspace only",
+  "historical_claims": [
+    {
+      "source": "historical documents/06-数据库与接口（已补API契约）.md §6.4",
+      "line_count_claim": 69685,
+      "status": "historical_claim_not_current_baseline"
+    },
+    {
+      "source": "historical documents/兵部·灯塔知识库独立重建方案审核反馈_20261017.md §B2 and historical documents/harness审阅-灯塔知识库独立重建设计方案-20261018.md §B5",
+      "line_count_claim": 69787,
+      "status": "historical_claim_conflicts_with_other_source"
+    }
+  ],
+  "reason": "nodes_v2.jsonl not present in the current project workspace or handoff archive; approved external locations have not been checked"
+}

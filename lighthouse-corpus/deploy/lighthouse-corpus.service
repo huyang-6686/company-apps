@@ -1,0 +1,24 @@
+[Unit]
+Description=Lighthouse Corpus Demo/API baseline
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=lighthouse
+Group=lighthouse
+WorkingDirectory=/opt/lighthouse-corpus/current/server
+EnvironmentFile=/etc/lighthouse-corpus/app.env
+ExecStartPre=/usr/bin/node /opt/lighthouse-corpus/current/server/scripts/check-db.js
+ExecStart=/usr/bin/node /opt/lighthouse-corpus/current/server/src/index.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

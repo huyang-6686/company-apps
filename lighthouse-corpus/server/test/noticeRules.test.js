@@ -1,0 +1,11 @@
+const test = require('node:test');
+const assert = require('node:assert');
+const { transition, isOverdue, canAccept, VALID_TYPES } = require('../src/domain/noticeRules');
+test('unread->pending ok', () => assert.deepStrictEqual(transition('unread','pending'), {ok:true}));
+test('pending->processed ok', () => assert.deepStrictEqual(transition('pending','processed'), {ok:true}));
+test('processed->pending rejected', () => assert.strictEqual(transition('processed','pending').ok, false));
+test('expired->pending ok (compensation)', () => assert.deepStrictEqual(transition('expired','pending'), {ok:true}));
+test('isOverdue true when pending past due', () => assert.strictEqual(isOverdue({status:'pending',due_at:'2026-10-19T00:00:00Z'}, '2026-10-20T00:00:00Z'), true));
+test('isOverdue false when processed', () => assert.strictEqual(isOverdue({status:'processed',due_at:'2026-10-19T00:00:00Z'}, '2026-10-20T00:00:00Z'), false));
+test('canAccept valid types only', () => { assert.strictEqual(canAccept('task_assigned'), true); assert.strictEqual(canAccept('oa_approval'), false); });
+test('VALID_TYPES exactly three', () => assert.deepStrictEqual([...VALID_TYPES].sort(), ['contribution_review','intel_alert','task_assigned']));

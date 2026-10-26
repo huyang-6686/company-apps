@@ -1,0 +1,20 @@
+{"query_id":"q01","query":"供应商成本核算","relevant_ids":["d01","d02"],"notes":"synthetic"}
+{"query_id":"q02","query":"员工贡献审核","relevant_ids":["d03"],"notes":"synthetic"}
+{"query_id":"q03","query":"中文全文检索分词","relevant_ids":["d04"],"notes":"synthetic"}
+{"query_id":"q04","query":"飞书云盘视频迁移","relevant_ids":["d05"],"notes":"synthetic"}
+{"query_id":"q05","query":"权限快照过期拒绝","relevant_ids":["d06"],"notes":"synthetic"}
+{"query_id":"q06","query":"情报周报失败告警","relevant_ids":["d07"],"notes":"synthetic"}
+{"query_id":"q07","query":"私属内容字段导出","relevant_ids":["d08"],"notes":"synthetic"}
+{"query_id":"q08","query":"节点版本软删除","relevant_ids":["d09"],"notes":"synthetic"}
+{"query_id":"q09","query":"百度网盘人工巡检","relevant_ids":["d10"],"notes":"synthetic"}
+{"query_id":"q10","query":"工作台授权失效时拒绝访问","relevant_ids":["d11"],"notes":"synthetic"}
+{"query_id":"q11","query":"知识来源白名单与扫描范围","relevant_ids":["d12"],"notes":"synthetic candidate; relevance labels require review"}
+{"query_id":"q12","query":"创始人反馈迁移清单的执行结果","relevant_ids":["d13"],"notes":"synthetic candidate; relevance labels require review"}
+{"query_id":"q13","query":"审计日志追加写入与防篡改","relevant_ids":["d14"],"notes":"synthetic candidate; relevance labels require review"}
+{"query_id":"q14","query":"每日备份和季度恢复演练","relevant_ids":["d15"],"notes":"synthetic candidate; relevance labels require review"}
+{"query_id":"q15","query":"节点导入幂等键与批次回滚","relevant_ids":["d16"],"notes":"synthetic candidate; relevance labels require review"}
+{"query_id":"q16","query":"公开内部受限私属敏感分级","relevant_ids":["d17"],"notes":"synthetic candidate; relevance labels require review"}
+{"query_id":"q17","query":"跨租户消息通过批准路由","relevant_ids":["d18"],"notes":"synthetic candidate; relevance labels require review"}
+{"query_id":"q18","query":"员工知识贡献退回和申诉记录","relevant_ids":["d19"],"notes":"synthetic candidate; relevance labels require review"}
+{"query_id":"q19","query":"百度网盘链接失效告警","relevant_ids":["d20"],"notes":"synthetic candidate; relevance labels require review"}
+{"query_id":"q20","query":"归档路径哈希对账与重复提交","relevant_ids":["d21"],"notes":"synthetic candidate; relevance labels require review"}

@@ -1,0 +1,54 @@
+# Dependencies and build output
+**/node_modules/
+**/dist/
+**/build/
+**/.next/
+**/coverage/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Databases and local runtime data
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.backup
+*.log
+*.pid
+
+# Large corpora, archives, generated package output
+corpus/
+corpora/
+datasets/
+data/raw/
+data/corpus/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+artifacts/staging/
+artifacts/releases/
+artifacts/
+
+# Historical handoff material may contain credentials or personal data
+historical documents/
+
+# OS/editor noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+.idea/
+.project-board/state.tmp.json

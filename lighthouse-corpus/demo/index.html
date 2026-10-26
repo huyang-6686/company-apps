@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>灯塔知识库 Demo（模拟数据）</title>
+<style>
+  body{font-family:"Microsoft YaHei",sans-serif;margin:0;background:#0b1220;color:#e6edf3}
+  header{padding:16px 24px;border-bottom:1px solid #22303f;display:flex;justify-content:space-between;align-items:center}
+  header h1{font-size:18px;margin:0}
+  .role-switch{display:flex;gap:6px}
+  .role-switch button{padding:4px 12px;border:1px solid #33475b;border-radius:6px;background:none;color:#c9d6e2;cursor:pointer;font-size:13px}
+  .role-switch button.active{background:#16283c;color:#fff}
+  .badge{font-size:12px;color:#8aa2b8;border:1px solid #22303f;border-radius:4px;padding:2px 8px}
+  main{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 60px)}
+  nav{border-right:1px solid #22303f;padding:16px}
+  nav button{display:block;width:100%;text-align:left;background:none;color:#c9d6e2;border:none;padding:10px 12px;border-radius:6px;cursor:pointer;font-size:14px}
+  nav button.active,nav button:hover{background:#16283c;color:#fff}
+  .content{padding:24px}
+  .search{width:60%;padding:10px 14px;border-radius:8px;border:1px solid #33475b;background:#101c2b;color:#e6edf3;font-size:14px}
+  .card{border:1px solid #22303f;border-radius:8px;padding:14px 16px;margin:12px 0;background:#101c2b}
+  .card h3{margin:0 0 6px;font-size:15px}
+  .meta{font-size:12px;color:#8aa2b8;margin-bottom:6px}
+  .tag{display:inline-block;font-size:11px;border:1px solid #33475b;border-radius:4px;padding:1px 6px;margin-right:6px;color:#9fb4c7}
+  .hidden-node{color:#5a6b7d;font-style:italic}
+  .sens-公开{color:#7ee787}.sens-内部{color:#79c0ff}.sens-受限{color:#d29922}.sens-私属{color:#f85149}
+  .stat{display:flex;gap:16px;margin:16px 0}
+  .stat div{border:1px solid #22303f;border-radius:8px;padding:12px 18px;background:#101c2b;text-align:center}
+  .stat b{font-size:22px;display:block}
+  .demo-note{margin-top:24px;font-size:12px;color:#5a6b7d}
+</style>
+</head>
+<body>
+<header>
+  <h1>灯塔知识库</h1>
+  <div class="role-switch">
+    <button id="roleFounder" onclick="setRole('founder')">创始人</button>
+    <button id="roleStaff" onclick="setRole('staff')">普通员工</button>
+  </div>
+</header>
+<header>
+  <h1>灯塔知识库 <span class="badge">Demo · 模拟数据 · 未接真实接口</span></h1>
+  <div class="badge">当前视角：创始人</div>
+</header>
+<main>
+  <nav>
+    <button data-view="home" class="active">首页总览</button>
+    <button data-view="search">知识检索</button>
+    <button data-view="pending">待确认清单</button>
+    <button data-view="share">分享流程</button>
+    <button data-view="contribution">贡献箱</button>
+    <button data-view="scan">扫描批次</button>
+    <button data-view="monitor">情报监测</button>
+    <button data-view="audit">审计留痕</button>
+    <button data-view="notices">通知板块</button>
+  </nav>
+  <div class="content" id="app"></div>
+</main>
+<script src="auditView.js"></script>
+<script src="shareView.js"></script>
+<script src="demo.js"></script>
+<script src="hologram.js"></script>
+</body>
+</html>

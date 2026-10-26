@@ -1,0 +1,10 @@
+{
+  "name": "lighthouse-corpus",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start:lan": "node scripts/start-lan.mjs",
+    "test": "node --test server/test/*.test.js",
+    "check": "node --check demo/shareView.js && node --check demo/demo.js && node --check server/src/index.js && node --check server/src/routes/workbench.js && node --check server/src/services/shareSession.js && node --check scripts/start-lan.mjs"
+  }
+}

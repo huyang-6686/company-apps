@@ -1,0 +1,13 @@
+{
+  "project": "local-5090d-production-hub",
+  "goal": "规划并开发 5090D 生产中枢",
+  "stage": "准备",
+  "focus": "建立协作、上下文和 Git 基线",
+  "tasks": [],
+  "decisions": [],
+  "changed_files": [],
+  "verification": ["Git 初始提交已建立"],
+  "blockers": ["同事源码、技术栈和接口边界尚未确认，远程仓库未配置"],
+  "next_action": "确认源码所有权、运行环境和职责边界",
+  "updated_at": "2026-10-18"
+}

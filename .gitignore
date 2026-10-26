@@ -1,0 +1,16 @@
+﻿.npm-cache/
+**/node_modules/
+**/node_modules.partial/
+**/.worktrees/
+*.zip
+*.b64
+.env
+.env.*
+!.env.example
+/b64.ps1
+/_deploy_zhenan/
+**/.env*
+**/.next/
+**/dist/
+**/build/
+**/coverage/

@@ -1,0 +1,169 @@
+{"event":"initialized","date":"2026-10-18","note":"建立项目进度板，历史源码未导入"}
+{"event":"decision_recorded","date":"2026-10-18","note":"与光工作台仅消费 OA 审批产生的数据变更，不提供独立的人事发起入口"}
+{"event":"decision_recorded","date":"2026-10-18","note":"先全量扫描 OA 审批并复盘提出优化意见，再全部接入"}
+{"event":"decision_recorded","date":"2026-10-18","note":"全量扫描包含审批模板、字段、流程配置、历史审批实例、流程记录、附件、抄送和通知记录"}
+{"event":"decision_recorded","date":"2026-10-18","note":"扫描通过已授权 OA API 读取"}
+{"event":"decision_recorded","date":"2026-10-18","note":"OA 平台为飞书审批 API"}
+{"event":"decision_recorded","date":"2026-10-18","note":"扫描全部已授权租户，并按租户分别出报告"}
+{"event":"decision_recorded","date":"2026-10-18","note":"扫描各租户 API 可访问的全部历史数据"}
+{"event":"decision_recorded","date":"2026-10-18","note":"下载并扫描审批附件内容，报告敏感字段和结构"}
+{"event":"decision_recorded","date":"2026-10-18","note":"附件原始副本仅临时处理，扫描完成后删除，仅保留脱敏结果"}
+{"event":"decision_recorded","date":"2026-10-18","note":"采用飞书事件订阅实时推送，并由定时任务补偿"}
+{"event":"decision_recorded","date":"2026-10-18","note":"审批事件按租户 + 审批实例 ID 做幂等处理；飞书开放平台为主路线，CLI 为辅助，人工导出为最后兜底；事件订阅属于开放平台主路线"}
+{"event":"decision_recorded","date":"2026-10-18","note":"采用企业自建应用，由管理员授权访问本企业租户"}
+{"event":"decision_recorded","date":"2026-10-18","note":"每个租户分别创建或授权同一套应用配置，数据严格隔离"}
+{"event":"decision_recorded","date":"2026-10-18","note":"工作台内部采用共享数据库，每张业务表带 tenant_id，并启用数据库行级安全"}
+{"event":"decision_recorded","date":"2026-10-18","note":"与光工作台先接入入职/转正类审批"}
+{"event":"decision_recorded","date":"2026-10-18","note":"飞书同步核心目标是审批数据统计分析和附件归档；审批状态查看与催办留在飞书，工作台不建设复杂状态跟踪"}
+{"event":"decision_recorded","date":"2026-10-18","note":"先全量采集审批字段，完成扫描与复盘后再确定统计指标"}
+{"event":"decision_recorded","date":"2026-10-18","note":"附件归档按租户 → 审批类型 → 审批实例 → 员工组织并支持这些维度检索"}
+{"event":"decision_recorded","date":"2026-10-18","note":"正式归档文件进入工作台加密对象存储，数据库只保存元数据和索引"}
+{"event":"decision_recorded","date":"2026-10-18","note":"正式归档文件永久保留，仅管理员可删除；临时扫描副本扫描完成后删除"}
+{"event":"decision_corrected","date":"2026-10-18","note":"归档目的地为飞书云盘映射位置，附件永久保存在飞书网盘，工作台只存统计分析和定位索引"}
+{"event":"handoff_prepared","date":"2026-10-18","note":"下一对话从 Superpowers 阶段 2 需求澄清启动；全局架构作为边界，按人力、行政、财务、法务、项目、经营逐模块推进，每模块澄清完成后再开发"}
+{"event":"decision_recorded","date":"2026-10-18","note":"人力模块首批需求范围覆盖历史复盘全部六个二级模块及全量页面（24 个三级、2 个四级）；规划中或未完成能力需在需求澄清中单独确认，不视为已实现"}
+{"event":"decision_recorded","date":"2026-10-18","note":"员工主数据以员工管理为唯一维护入口，其余人力模块只引用并按业务流程产生变更"}
+{"event":"decision_recorded","date":"2026-10-18","note":"员工入职链路：先飞书注册进组织架构并同步花名册建档，后走入职审批，审批附件同步写入员工基础信息并归档"}
+{"event":"decision_recorded","date":"2026-10-18","note":"转正/调岗/离职链路确认：转正自动改状态，调岗等飞书通讯录同步，离职转离职库不删除；附件均同步归档，飞书账号处理留在飞书侧"}
+{"event":"decision_recorded","date":"2026-10-18","note":"签约字段全部放OA入职流程采集，工作台只读同步；变更走对应OA审批；OA扫描阶段需反向补充字段到入职审批模板；合同续签改为OA审批"}
+{"event":"decision_recorded","date":"2026-10-18","note":"薪资制度配置由工作台维护，OA只采集岗级选项；岗级薪资页面按在职/离职两列展示人员匹配，状态变化后花名册自动更新"}
+{"event":"decision_recorded","date":"2026-10-18","note":"考勤沿用旧应用范围：飞书自动同步+异常统计确认+月报归档+供薪资核算，不做手动补录，异常确认用于留痕和员工签署整改书"}
+{"event":"decision_recorded","date":"2026-10-18","note":"社保管理定位：缴费留痕与提醒，不做薪资联动；社保基数为员工工资明细字段，支持年度调整版本化管理"}
+{"event":"evidence_recorded","date":"2026-10-18","note":"旧应用社保基数维护位于岗级薪资模块四级页面，社保基数属于薪资配置而非社保管理页"}
+{"event":"decision_recorded","date":"2026-10-18","note":"社保基数页面调整为薪酬管理三级页面，年度调整走OA审批+文件上传+基数录入+自动同步；员工工资明细基数默认当年基数可手动改；社保管理保留凭证上传与缴费明细查阅"}
+{"event":"decision_recorded","date":"2026-10-19","note":"薪酬核算采用工作台工资条签字与定稿，支持银行代发导出、飞书审批、OA结束同步发放记录和状态回写；银行模板待确认"}
+{"event":"decision_recorded","date":"2026-10-19","note":"薪酬状态链和定稿后更正审核流程确认：工资条签字、定稿、OA审批、网银发放、回单回写均为必经节点"}
+{"event":"decision_corrected","date":"2026-10-19","note":"工资明细先定稿锁定，再发送工资条并由员工本人签字；签字不是定稿前置条件"}
+{"event":"decision_corrected","date":"2026-10-19","note":"薪酬状态链最终确认：员工签字后才定稿；签字阶段问题退回草稿明细定稿重发，后续代发、OA、网银和回单阶段不可回退"}
+{"event":"decision_recorded","date":"2026-10-19","note":"工资条24小时未签字视为默认确定，系统自动确认后继续发放流程"}
+{"event":"design_document_ready_for_review","date":"2026-10-19","note":"形成组织架构管理规范-20261019正式版、应用搭建结构规范-20261019更新版正式版、网盘映射管理与文件命名规范-20261019更新版正式版三份送审稿，待创始人确认后发布"}
+{"event":"decision_recorded","date":"2026-10-19","note":"轻立方为组织架构唯一来源；与光经营部归并到轻立方业务部经营部；外协人员进入经营部下外协部虚拟部门；四个经营实体统一挂在经营部"}
+{"event":"decision_recorded","date":"2026-10-19","note":"应用架构统一为五层：飞书底座、与光工作中台、工具层、业务层-大项目、业务层-经营实体"}
+{"event":"decision_recorded","date":"2026-10-19","note":"管理文件由飞书OA规范命名并提交；中台只校验错误退回，不自动改正式文件名；新版本发布后旧版自动归档到模块历史汇总"}
+{"event":"verification_recorded","date":"2026-10-19","note":"三份规范已读取核验关键结构；本轮无代码变更、未运行代码测试"}
+{"event":"decision_corrected","date":"2026-10-19","note":"镇安真味区域公用品牌项目管理中台固定归属轻立方业务部项目部，属于特大项目专项管理，不归经营部"}
+{"event":"decision_corrected","date":"2026-10-19","note":"望向山、特产店、旅拍馆应用统一由与光租户承载，业务组织和正式档案归并到轻立方业务部经营部"}
+{"event":"design_document_updated","date":"2026-10-19","note":"组织架构、应用搭建结构、网盘映射三份送审稿同步修订"}
+{"event":"decision_corrected","date":"2026-10-19","note":"望向山全部业务资料和正式档案归档到与光租户望向山中台网盘，轻立方经营部望向山仅作为组织映射节点"}
+{"event":"decision_recorded","date":"2026-10-19","note":"与光工作中台是统一应用并承载完整统一组织架构；轻立方是公司组织架构唯一主数据来源和轻立方侧人员入口；与光承载经营实体人员组织节点和望向山正式档案"}
+{"event":"decision_recorded","date":"2026-10-19","note":"与光组织节点固定为经营部下望向山、特产店、旅拍馆、外协部，并映射到轻立方业务部经营部；外协人员从与光租户登录"}
+{"event":"decision_recorded","date":"2026-10-19","note":"双租户数据合并仅创始人可执行；应用内跨租户协作允许按角色、项目、实体或事项授权"}
+{"event":"decision_recorded","date":"2026-10-19","note":"经营支持包含品牌部；实体员工与店员统一称为实体员工（店员）"}
+{"event":"verification_recorded","date":"2026-10-19","note":"三份规范已完成双租户组织、应用与网盘边界修订并通过文本核验；无代码测试"}
+{"event":"decision_corrected","date":"2026-10-19","note":"与光工作中台是高于各飞书租户组织结构的统一应用层；轻立方租户与与光租户人员均汇入工作台统一组织架构，租户作为身份与数据来源保留，不各自构成互不关联的组织树；三份待创始人审核的规范送审稿本轮不改"}
+{"event":"decision_recorded","date":"2026-10-19","note":"同一自然人在多个飞书租户的账号绑定到工作台同一名员工，绑定前需人工核验"}
+{"event":"decision_recorded","date":"2026-10-19","note":"跨租户账号绑定由人事负责人直接核验确认，创始人仅处理异常"}
+{"event":"decision_recorded","date":"2026-10-19","note":"与光工作中台是统一组织架构维护入口，人事负责人维护并即时生效；飞书租户的组织与人员变更只同步到工作台并由人事人工核对"}
+{"event":"decision_recorded","date":"2026-10-19","note":"飞书同步与工作台组织记录冲突时按字段分别确定来源；争议由人事负责人裁决，异常再交创始人；与送审稿中轻立方飞书通讯录唯一主数据来源存在待审核差异，本轮不改送审稿"}
+{"event":"decision_recorded","date":"2026-10-19","note":"姓名、手机号、邮箱、飞书 user_id、账号状态以飞书同步为来源，工作台只保存关联"}
+{"event":"handoff_recovered","date":"2026-10-19","note":"按 AGENTS.md、进度板与 Git 恢复交接；当前为 Superpowers 阶段 2 需求澄清，仅补全 handoff 与整理进度板，不开始新功能；历史 documents 目录仅确认类型，不提交"}
+{"event":"verification_recorded","date":"2026-10-19","note":"已核验 main 分支与最近提交 fdb69cf、9764326；未运行代码测试，CTX 未检测"}
+{"event":"decision_recorded","date":"2026-10-19","note":"字段来源矩阵确认：部门归属由轻立方租户通讯录同步；与光租户部门归集到轻立方业务部经营部；岗位、职级由轻立方租户 OA 同步；员工编号由工作台维护并按序增生成，两个租户共用同一编号序列"}
+{"event":"open_question","date":"2026-10-19","note":"业务归属不等同于部门归属，具体是项目、经营实体或事项参与关系仍待定义，需确认来源、有效期和授权用途"}
+{"event":"decision_recorded","date":"2026-10-19","note":"项目业务归属与组织部门分离：一般项目在项目管理模块内，特大项目使用单独应用；均由项目部负责，项目部负责人是第一负责人，指派的本部门经办人为项目负责人，其他参与者分普通成员与协作人员"}
+{"event":"decision_recorded","date":"2026-10-19","note":"经营实体业务归属与组织部门分离：经营部负责人是经营管理第一负责人，具体实体指派本部门经办人为实体负责人，再由实体负责人安排实体下属人员"}
+{"event":"open_question","date":"2026-10-19","note":"待确认项目普通成员与协作人员的权限和加入退出规则，以及经营实体下属人员的范围、来源和组织归属关系"}
+{"event":"decision_corrected","date":"2026-10-19","note":"业务归属范围确认同时包含项目参与关系和经营实体参与关系，均与组织部门分开记录；临时事项授权另行记录，不并入业务归属字段，是否需要独立机制待确认"}
+{"event":"decision_recorded","date":"2026-10-20","note":"项目协作人员来自项目部以外，按具体事项授权参与，默认仅访问获授权事项；普通成员属于项目团队，按项目角色参与日常协作"}
+{"event":"decision_recorded","date":"2026-10-20","note":"项目普通成员仅由项目负责人加入或移除，成员不能自行退出"}
+{"event":"decision_recorded","date":"2026-10-20","note":"同一员工可以同时参与多个经营实体；实体参与关系可并行记录，不改变其组织部门归属"}
+{"event":"decision_recorded","date":"2026-10-20","note":"外协部人员可以由经营实体负责人安排进入实体团队；外协人员保留外协部组织归属，仅增加对应经营实体参与关系"}
+{"event":"stage_changed","date":"2026-10-20","note":"任务管理需求问答完成，进入 Superpowers 阶段 3 规范与接口设计"}
+{"event":"decision_recorded","date":"2026-10-20","note":"任务类型为日常任务、经营任务、项目任务；管理工作归入职能部门日常任务；协作不单独分类，协作部门/协作人为选填字段并可填写要求"}
+{"event":"decision_recorded","date":"2026-10-20","note":"任务支持向下和同级协作，不支持向上；项目成员平级，经营实体主理人与店员平级；取消下属辐射，由接收人决定是否另行发布协作任务"}
+{"event":"decision_recorded","date":"2026-10-20","note":"任务提交由发布人验收，驳回原因必填；发布人可修改内容和截止时间、取消未完成任务并留痕；逾期后可补交"}
+{"event":"decision_recorded","date":"2026-10-20","note":"任务临期前一天提醒接收人，超期后每日提醒接收人和发布人；离职或调岗未完成任务自动转派给接收人部门负责人"}
+{"event":"decision_recorded","date":"2026-10-20","note":"普通员工总看板仅查看与本人相关任务；应用看板仅展示本应用任务；发布人、接收人、接收人部门负责人默认可见"}
+{"event":"decision_recorded","date":"2026-10-20","note":"任务统计按人、部门和时间段提供详细统计，包括任务数、完成数、超时数、响应时长、平均完成时间和逾期率"}
+{"event":"documents_created","date":"2026-10-20","note":"形成任务发布与管理正式规范、任务接口合同和与光任务功能配置启动清单；待一致性核验与应用联调"}
+{"event":"decision_recorded","date":"2026-10-20","note":"统一通知中心汇总全部应用通知、未读、待办理、逾期和统计；业务办理不统一回到与光工作台"}
+{"event":"decision_recorded","date":"2026-10-20","note":"各来源应用使用自身在对应飞书租户的机器人投递通知；员工点击消息直接进入来源应用具体办理页；与光机器人只发送工作台自身通知和无法归属应用的中台异常"}
+{"event":"documents_created","date":"2026-10-20","note":"形成第五份统一信息通知与应用消息通道规范及五份规范一致性自检记录；自检结论为统一汇总、应用投递、原应用办理，无边界冲突"}
+{"event":"metadata_updated","date":"2026-10-20","note":"组织架构、应用搭建结构、网盘映射三份规范按用户已发布口径统一标题和状态为正式版，五份规范状态标识一致"}
+{"event":"document_created","date":"2026-10-20","note":"形成各应用最终规范发布与接入执行提示词，包含最终版规范附件清单、强制执行边界、接入清单、验收场景、禁止事项和回执格式"}
+{"event":"stage_renamed","date":"2026-10-20","note":"当前阶段名称统一为 Superpowers 阶段 3 方案整理与比较；任务、接口、通知规范和一致性自检作为本阶段方案整理与横向比较产物，下一步进入应用联调准备"}
+{"event":"verification_recorded","date":"2026-10-20","note":"只读核验五份规范与任务配置启动清单：边界统一为与光统一汇总、来源应用投递、来源应用办理；逐应用接入所需 application_id、负责人、回调、授权映射、测试账号、签名配置、网盘目录、租户机器人和办理深链尚未提供可验证实值"}
+{"event":"handoff_updated","date":"2026-10-20","note":"按用户正式发布通知更新交接：阶段保持为 Superpowers 阶段 3 方案整理与比较；八份规范及配套接口文件作为正式基线；补全已验证事实、推断、未知事项、当前测试结果、未解决问题、下一步和提交号；历史 documents 目录与脚本不提交"}
+{"event":"integration_matrix_created","date":"2026-10-20","note":"建立候选应用接入矩阵，登记工作台、工具层、镇安真味特大项目及望向山/特产店/旅拍馆经营实体应用；正式 application_id、负责人、回调、机器人、签名、测试账号、网盘目录和办理深链待各应用回执，不推断生产接入状态"}
+{"event":"receipt_template_created","date":"2026-10-20","note":"固化逐应用接入回执模板，覆盖应用身份、任务权限、通知接口、机器人租户路由、签名幂等、网盘映射、测试环境和阻塞问题；明确不得提交密钥、令牌或私密凭据"}
+{"event":"integration_gates_added","date":"2026-10-20","note":"在应用接入矩阵补充生产接入门禁表，逐应用跟踪机器人、通知板块、办理深链、权限、任务/通知接口、幂等、重试补偿、网盘附件、测试环境和审计日志；当前全部待回执，生产许可保持禁止"}
+{"event":"formal_attachment_verified","date":"2026-10-20","note":"核验八份正式规范及配套文件全部存在；任务验收规则为接收人提交结果进入待验收，发布人通过后完成，驳回必须填写原因；应用级资料仍只有 application_id 字段说明和 app_xxx 示例，没有真实接入值"}
+{"event":"handoff_consistency_checked","date":"2026-10-20","note":"统一 board、state 和 handoff 的当前接入状态：规范与附件已核验，接入矩阵、回执模板和生产门禁已建立；下一步为按模板收集应用级回执并回填门禁，生产许可继续禁止"}
+{"event":"acceptance_cases_created","date":"2026-10-20","note":"将正式通知的 12 个强制验收场景整理为逐应用验收清单；当前全部待联调，要求记录事件、通知、租户、操作者和结果证据，未通过前生产许可保持禁止"}
+{"event":"acceptance_cross_document_checked","date":"2026-10-20","note":"对照验收清单、最终发布提示词、统一通知规范和任务接口合同；AC-01 至 AC-12 全部存在，任务接口合同覆盖任务相关子集，通知层场景由通知规范承担，未发现边界冲突"}
+{"event":"receipt_template_coverage_verified","date":"2026-10-20","note":"逐项核对回执模板与正式通知接收回执要求：16 项必答内容全部有对应字段，模板额外覆盖租户路由、深链权限复核、幂等补偿和生产许可声明；未发现缺项"}
+{"event":"matrix_candidates_gap_fixed","date":"2026-10-20","note":"发现并修正接入矩阵候选缺项：按正式应用搭建结构规范补入镇安生态产业协会管理中台和旅行社，保持未回执和禁止生产，不推断接入值"}
+{"event":"temporary_authorization_decided","date":"2026-10-20","note":"创始人确认临时事项授权采用方案 A 授权记录表：授权人直接登记被授权人、项目/实体/事项、可访问范围、起止时间和授权原因，到期自动失效，双方可随时查看；不设审批环节，登记即授权，记录用于审计"}
+{"event":"project_management_stage1_started","date":"2026-10-20","note":"启动项目管理模块 Superpowers 阶段 1 项目探索：已通读 historical documents/项目管理-阶段1至5汇编.md，提炼历史目标、已完成内容、遗留问题、风险和教训；确认当前 yuguang-workbench 无项目管理业务代码；记录与统一组织、财务、人力、经营、OA、网盘、通知和权限的合并前置；用户确认前不进入阶段 2、设计或编码"}
+{"event":"project_management_formal_notice_received","date":"2026-10-20","note":"收到与光工作中台最终规范发布及应用接入执行通知，将统一组织/员工ID、双租户路由、接口隔离、来源应用办理、来源应用机器人、通知板块、深链权限重校验、幂等重试补偿、网盘归档和12项强制验收场景纳入项目管理阶段1当前正式约束；应用级接入实值仍待回执"}
+{"event":"finance_stage1_started","date":"2026-10-20","note":"启动财务管理模块 Superpowers 阶段 1 项目探索：已通读 historical documents/财务模块1.md 与 财务模块2.md，提炼历史目标、已完成内容、遗留问题、风险和教训；确认当前 yuguang-workbench 无财务业务代码；财务历史方案与当前统一组织、OA、网盘、通知及跨模块边界存在待确认合并项；用户确认前不进入需求澄清、设计或编码"}
+{"event":"finance_formal_notice_received","date":"2026-10-20","note":"收到与光工作中台最终规范发布及应用接入执行通知；将统一员工ID、双租户路由、批准接口、来源应用办理、来源应用机器人、应用通知板块、深链权限重校验、签名幂等重试补偿、网盘归档和12项强制验收纳入财务模块第1阶段探索约束；application_id、负责人、机器人、深链、测试环境和联调时间仍待应用回执"}
+{"event":"finance_stage1_confirmed","date":"2026-10-20","note":"用户确认财务管理模块项目探索摘要，允许进入第2阶段需求澄清；财务专项独立记录，未覆盖项目管理、行政等其他模块当前阶段"}
+{"event":"finance_stage2_started","date":"2026-10-20","note":"启动财务管理模块第2阶段需求澄清；严格一次只提一个问题；首问为首发范围是否沿用历史15个财务子域全量，还是按当前与光工作台模块边界拆分"}
+{"event":"management_stage1_exploration_completed","date":"2026-10-20","note":"完成经营管理模块 Superpowers 阶段 1 项目探索：通读 historical documents/经营管理1-5-交付包.md，提炼四实体经营看板、供应商台账、历史设计决策、遗留问题、风险与教训；核验当前仓库无经营业务代码；记录经营与统一组织、财务、项目、人力、OA、网盘、通知和权限的合并前置；用户确认前不进入阶段 2、设计或编码"}
+{"event":"management_formal_integration_baseline_received","date":"2026-10-20","note":"收到并纳入当前基线的《与光工作中台最终规范发布及应用接入执行通知》：经营应用必须复用统一组织与员工 ID、保留租户来源和 user_id、通过批准接口交换数据、由来源应用负责办理和机器人投递、建设应用通知板块并支持深链权限校验、幂等重试补偿、网盘映射、审计和 12 个强制验收场景；门禁完成前禁止生产通知和生产任务接入；不改变经营首期范围仍待第 2 阶段逐条确认"}
+{"event":"management_stage1_approved_stage2_started","date":"2026-10-20","note":"负责人确认经营管理模块阶段 1 项目探索通过；恢复经营管理为当前活动并进入阶段 2 需求澄清；首题为首期最小可运行范围，继续严格一次只问一个问题"}
+{"event":"administration_stage1_exploration_completed","date":"2026-10-20","note":"完成行政管理模块 Superpowers 阶段 1 项目探索：通读 historical documents/行政管理.md，提炼七大模块/二十五事项、合同轻台账、历史目标、遗留问题、风险与教训；核验当前仓库无行政业务代码；记录行政与统一组织、人力、财务、项目、经营、OA、网盘、通知和权限的合并前置；用户确认前不进入阶段 2、设计或编码"}
+{"event":"administration_integration_notice_recorded","date":"2026-10-20","note":"将用户发布的最终规范发布及应用接入执行通知纳入行政管理阶段 1 合并基线：确认统一组织与员工 ID、双租户路由、来源应用办理、任务与通知接口、来源应用机器人、网盘映射、权限校验、幂等重试和 12 项验收要求；应用级回执和生产接入证据仍待补齐，阶段保持为 1"}
+{"event":"project_management_stage1_confirmed","date":"2026-10-20","note":"用户确认进入项目管理模块阶段 2；阶段 1 采用历史阶段1-5汇编作为复盘证据、2026-10-20最终规范发布及应用接入通知作为当前执行约束；阶段 1 摘要与待确认项已保留，未开始方案、设计或编码"}
+{"event":"project_management_stage2_started","date":"2026-10-20","note":"启动项目管理模块 Superpowers 阶段 2 需求澄清：目标是逐条确认流程、角色、数据、跨模块接口、通知、网盘、权限和验收口径；严格一次只提一个问题，首问为成本测算应作为立项前置关卡还是立项后的事后核算"}
+{"event":"project_management_historical_data_governance_decided","date":"2026-10-20","note":"用户确认历史多维表五至六年数据存在较多错误且字段持续变化；采用统一字段设计应用，历史数据与应用开发分线推进，先建统一结构和待核验状态，再分批导入并逐条核验；未核验数据不得进入正式统计和毛利率报表；数据量增加映射与人工核验工作量但不阻塞应用结构开发"}
+{"event":"project_management_order_base_scanned","date":"2026-10-20","note":"扫描 historical documents/2025公司订单管理中台V4简洁版.base：快照包含2021-2026六张年度项目登记表和一张资质管理表，记录数92/272/419/239/126/94/12合计1254；年度字段数35/36/36/36/37/37，字段、选项和类型存在演变；立项相关字段已盘点，未发现独立立项申请、审批状态、审批人或驳回原因字段，正式立项流程待需求确认"}
+{"event":"administration_stage2_started","date":"2026-10-20","note":"用户继续行政管理模块阶段 2 需求澄清；当前活动切换为行政管理，严格一次只提一个问题，首问为行政管理首期纳入范围，未完成需求清单前不进入方案比较、设计或编码"}
+{"event":"management_requirement_scope_confirmed","date":"2026-10-21","note":"负责人确认经营管理首期范围：四实体经营汇总看板和供应商/厂家统一台账同时纳入首期；经营模块后续问题继续逐条澄清"}
+{"event":"management_data_ingestion_decided","date":"2026-10-21","note":"负责人确认四实体经营数据由各来源应用同步进入经营管理应用；来源应用清单、同步字段、频率、批准接口、失败补偿与数据校验规则待确认"}
+{"event":"management_supplier_ledger_ownership_clarified","date":"2026-10-21","note":"负责人确认供应商/厂家统一台账在与光工作台经营管理维护，来源多渠道，下属实体应用可能同步供应商信息，工作台与实体应用双端均可维护且工作台权限高于实体应用；字段主责、冲突解决与覆盖方向待确认"}
+{"event":"finance_requirement_scope_recovered","date":"2026-10-21","note":"从现有进度板确认记录同步财务首发范围：历史方案 15 个子域全量纳入；仅确认范围，不自动批准历史字段、技术栈、接口和日期；该范围此前未同步到 state.json/events.jsonl"}
+{"event":"handoff_recovered_2026_10_21","date":"2026-10-21","note":"Recovered current focus as administration module phase 2 from latest chronological event; aligned state, board and handoff; verified three module exploration records, main baseline c89c408 and historical documents file types; no business code changed and historical documents/ plus scripts/build_task_docs.py excluded from this handoff"}
+{"event":"management_data_ingestion_decided","date":"2026-10-21","note":"负责人确认四实体经营数据由各来源应用同步进入经营管理应用；来源应用清单、同步字段、频率、批准接口、失败补偿与数据校验规则待确认"}
+{"event":"handoff_focus_corrected_2026_10_21","date":"2026-10-21","note":"恢复核验发现较晚的经营管理首期与数据来源答复及 board.md 中明确的下一问；当前活动焦点更正为经营管理阶段 2，下一问为供应商/厂家统一台账维护责任人与来源系统。行政首期范围仍未回答，保留待续。此前 administration 焦点判定依据不完整，保留事件历史，不覆盖事实"}
+{"event":"supplier_ledger_ownership_confirmed","date":"2026-10-21","note":"负责人确认供应商归属经营管理模块；具体由经营管理人员直接维护还是由其他业务应用通过批准接口同步，仍待确认"}
+{"event":"finance_oa_sync_only_decided","date":"2026-10-21","note":"用户确认财务模块只同步飞书OA的审批结果、业务数据和附件，不由财务应用发起OA审批；具体同步范围、附件归档映射和异常补偿仍待澄清"}
+{"event":"finance_external_system_boundary_question","date":"2026-10-21","note":"财务需求澄清当前问题：是否沿用历史边界，不直连金蝶、电子税务局和网银，由财务人员在原系统办理并在财务模块登记/核对结果"}
+{"event":"finance_no_direct_api_decided","date":"2026-10-21","note":"用户确认财务模块暂时不与金蝶、电子税务局、网银做API直连，原因是实施有难度；记录为阶段性决策，不推断为永久排除；无直连期间的数据交换方式和未来重评条件仍待确认"}
+{"event":"finance_manual_or_file_exchange_question","date":"2026-10-21","note":"财务需求澄清当前问题：暂不直连期间，财务模块与金蝶、电子税务局、网银是否通过财务人员文件导入/导出交换数据，而非逐笔手工录入"}
+{"event":"finance_file_import_decided","date":"2026-10-21","note":"用户确认财务外部系统无API直连期间采用文件导入；未确认导出或双向交换，文件格式、导入数据范围、校验与错误处理及未来直连重评条件待澄清"}
+{"event":"finance_project_entity_dimensions_question","date":"2026-10-21","note":"财务需求澄清当前问题：财务记录是否关联统一项目ID和经营实体ID，以分别归集项目成本/收入与实体经营收支"}
+{"event":"finance_project_entity_linkage_decided","date":"2026-10-21","note":"用户确认财务记录需要关联统一项目ID和经营实体ID；具体哪些子域适用、字段是否必填仍待逐项确认"}
+{"event":"finance_employee_id_linkage_question","date":"2026-10-21","note":"财务需求澄清当前问题：财务记录是否关联统一员工ID，用于员工报销、借款、薪酬相关核算或责任人追踪"}
+{"event":"finance_project_entity_code_and_temporary_assignment_clarified","date":"2026-10-21","note":"用户说明项目以标准名称和财务唯一码识别，实体以实体名称和财务唯一码识别，项目和实体都有授权参与人；临时安排员工产生费用时只需锁定项目或实体。财务主数据ID映射、临时人员是否需授权及经办人身份留痕待确认"}
+{"event":"finance_temporary_assignment_permission_question","date":"2026-10-21","note":"财务需求澄清当前问题：临时安排但不在项目/实体常规授权参与人名单的员工，是否允许将费用归集到该项目/实体，并记录统一员工ID为报销人或经办人"}
+{"event":"finance_expense_attribution_decided","date":"2026-10-21","note":"用户确认公司内任意人员都可走费用报销；费用归集仅锁定项目ID或实体ID，按事不对人，不要求员工属于项目/实体授权参与人；实际报销人/提交人的审批和审计留痕待确认"}
+{"event":"finance_claimant_audit_identity_question","date":"2026-10-21","note":"财务需求澄清当前问题：是否仍记录实际报销人/提交人的统一员工ID用于审批和审计，但不作为费用归集维度"}
+{"event":"finance_claimant_identity_audit_decided","date":"2026-10-21","note":"用户确认系统记录实际报销人/提交人的统一员工ID用于审批和审计，但员工ID不作为费用归集维度"}
+{"event":"finance_oa_scope_question","date":"2026-10-21","note":"财务需求澄清当前问题：飞书OA数据同步应覆盖全部财务相关审批类型（含历史方案列出的17类），还是先限定具体类型"}
+{"event":"finance_oa_source_of_truth_decided","date":"2026-10-21","note":"用户确认所有审批都以飞书OA同步为准；财务模块只同步OA审批数据、结果和附件，不由财务应用发起审批，也不维护独立审批真相；历史实例是否回溯同步、具体模板范围和附件归档方式待确认"}
+{"event":"finance_oa_historical_sync_question","date":"2026-10-21","note":"财务需求澄清当前问题：是否回溯同步接入前已有的历史财务OA审批实例，还是只同步接入启用后的新增审批"}
+{"event":"finance_full_oa_scan_and_archive_decided","date":"2026-10-21","note":"用户确认财务OA采用全量数据范围；先扫描全部OA并根据扫描复盘优化，再进行接入；历史OA作为备查归档。扫描需遵守已记录边界：只读授权API、覆盖所有已授权租户可访问历史数据、按租户报告、扫描附件、临时原件副本完成后删除并仅保留脱敏结果"}
+{"event":"finance_doubao_app_authorization_question","date":"2026-10-21","note":"核实是否可立即使用豆包上架应用执行OA扫描：流程允许先行只读扫描，但该应用是否获所有目标租户管理员授权且有审批实例/流程/附件读取权限未验证；询问应用授权和权限回执"}
+{"event":"finance_doubao_scan_in_progress_reported","date":"2026-10-21","note":"用户说明豆包应用已经在扫描OA；当前仅记录为外部进行中的工作，扫描结果、实际授权租户、读取权限、完成度和报告仍未由本项目验证；继续财务需求澄清"}
+{"event":"finance_archive_scope_question","date":"2026-10-21","note":"财务需求澄清当前问题：历史OA备查归档是否保存全部历史审批实例结构化数据、流程记录、抄送/通知记录和附件索引；附件原件是否仍只临时处理并在扫描后删除临时副本、保留脱敏结果"}
+{"event":"finance_archive_scope_decided","date":"2026-10-21","note":"用户确认历史OA不在财务侧另行复制或备查归档，原始审批记录继续保留在飞书OA，财务侧不删除原始OA，也不保存历史OA原件副本，仅保留扫描分析所需的脱敏结果和定位信息"}
+{"event":"management_supplier_conflict_policy_decided","date":"2026-10-21","note":"负责人确认供应商/厂家台账双端修改冲突时以与光工作台经营管理数据为准，并覆盖同步到下属实体应用；首期台账必需字段待确认"}
+{"event":"management_supplier_required_fields_interpreted","date":"2026-10-21","note":"负责人答复供应商台账必需字段问题为“需要”；按上下文暂记录为刚才列举字段均为首期必需：名称、别名、类别、联系人及电话、所属实体、合作状态、结算信息、资质附件；如仅部分字段需要，待负责人纠正"}
+{"event":"management_supplier_deduplication_decided","date":"2026-10-21","note":"负责人确认多渠道供应商优先按统一社会信用代码匹配；缺少代码时由经营管理人员人工确认是否归并"}
+{"event":"management_supplier_category_dictionary_decided","date":"2026-10-21","note":"负责人确认首期需要由经营管理统一维护供应商/厂家类别字典；具体类别清单与新增、调整维护责任待确认"}
+{"event":"management_category_owner_clarified","date":"2026-10-21","note":"负责人答复类别维护责任为“经营管理业务大类”；按现有统一组织/业务层级记录为经营管理大类（实体为下属实体），不推断具体岗位；待确认类别字典是否全实体共用及实体应用维护权限"}
+{"event":"management_category_dual_maintenance_and_hierarchy_confirmed","date":"2026-10-21","note":"负责人确认供应商/厂家类别字典在与光工作台经营管理端和下属实体端双端均可维护；经营管理属于与光工作台业务大类，经营实体位于其下，经营管理层级高于下属实体；类别字典是否全实体共用一套仍待确认"}
+{"event":"management_supplier_source_and_permissions_clarified","date":"2026-10-21","note":"负责人确认供应商数据主要来自OA；下属实体应用同步后只能补充信息，不能新增或删除；与光工作台经营管理保留新增和删除；采购优先从库中选择但允许线下临时合作，支付数据同步可新增供应商；OA重同步已删除供应商的处理方式待确认"}
+{"event":"management_supplier_lifecycle_and_recommendation_decided","date":"2026-10-21","note":"负责人决定保留工作台新增供应商能力，用于登记尚未合作但正在询价的供应商；取消删除能力，填错通过修改纠正；增加合作评级，不建议合作者排序后置；OA已证明合作过的供应商增加合作次数和合作金额，并支持按次数和金额排序推荐；评级维护方式与排序权重待确认"}
+{"event":"management_supplier_rating_metrics_confirmed","date":"2026-10-21","note":"负责人确认供应商合作评级由经营管理人员人工维护，合作次数和合作金额由OA/支付数据自动统计，三者共同用于推荐排序；默认优先级待确认"}
+{"event":"management_supplier_recommendation_priority_confirmed","date":"2026-10-21","note":"负责人确认供应商推荐排序优先级为合作次数→合作金额→评级；次数和金额排序方向、评级先后映射及并列处理规则待确认"}
+{"event":"oa_audit_workflow_recovered","date":"2026-10-21","note":"按用户指定的应用开发流程通知恢复当前 OA 专项：阶段 0 完成、阶段 1 需求澄清与设计开始；核对分支 main、HEAD 0a1729a、进度板、近期提交、Standard Library 和当前源码目录；工作区原有进度板修改及未跟踪内容保留"}
+{"event":"oa_audit_scope_and_dual_tenant_decided","date":"2026-10-21","note":"用户确认只分析 2026 年 OA 审批，统计不同 OA 使用次数、诊断/修改建议/冲突/缺失 OA；轻立方和与光为关联租户，两边 OA 要求一致，与光员工可发起并由关联租户后续路由至轻立方账号，总览需跨租户分类汇总；同一跨租户审批按发起端实例计一次，关联不明单列待核"}
+{"event":"oa_audit_workflow_spec_next","date":"2026-10-21","note":"阶段 1 下一项：定义本地分析 Demo 的导入数据契约、模板匹配、双租户实例关联/去重、2026 统计、诊断/冲突/缺失建议输出和脱敏边界；使用合成模拟数据，不代表 Doubao/飞书真实集成；实际授权、模板与实例数据未知；本轮未执行线上扫描或代码测试"}
+{"event":"oa_audit_demo_scope_confirmed","date":"2026-10-21","note":"用户确认本轮 Demo 是 Doubao 扫描结果分析器：读取脱敏结果，统计 2026 双租户 OA 并输出诊断；Demo 不连接真实飞书或 Doubao；Doubao 扫描结果具体输入格式仍待确认"}
+{"event":"oa_audit_input_contract_question","date":"2026-10-21","note":"已询问 Doubao 扫描结果是否同时提供人读报告和固定 JSON，并由 Demo 只以 JSON 作为校验、跨租户去重和统计依据；用户答复待收到，输入 schema 暂不冻结"}
+{"event":"oa_audit_input_contract_decided","date":"2026-10-21","note":"用户确认 Doubao 扫描结果采用人读报告加固定 JSON 双产物；OA 分析器以 JSON 为校验、跨租户实例关联去重和统计依据，人读报告供人工复核；具体 JSON schema 待设计阶段定义"}
+{"event":"oa_project_handoff_prepared","date":"2026-10-21","note":"按最新应用开发流程重评：阶段 0 恢复完成，阶段 1 需求已确认但设计/spec 未完成；更新 handoff、state、board、events 并准备新对话提示词；仅文档交接，无功能代码、线上扫描、部署或提交；测试边界为文档/Git 只读检查"}
+{"event":"oa_demo_network_deferred","date":"2026-10-21","note":"负责人确认继续推进本地 OA 分析 Demo；网络接入、真实飞书/Doubao 连接、生产通知和公网访问延后到 Demo 完成后的联调阶段。固定端口仅作为未来本地启动约束；与光工作中台目录规范分配端口 3002。当前不读取生产数据、不写入真实 OA、不发送外部消息。"}
+{"event":"oa_analysis_spec_reviewed_and_revised","date":"2026-10-21","note":"阶段 1 spec 已形成并接受一轮独立只读复核；复核发现 handler-only 结构、模板版本精确引用、高置信证据合同、无输入基线的租户路由冲突 4 项阻断，草案已修订；待最终只读复核和负责人确认。分析器仍仅为设计，未编码，未连接真实服务。大型中台建议按人力/行政/财务/项目/经营分模块分任务推进，保持统一身份、组织、权限、接口、通知和网盘合同；未宣称各模块方案全部定稿。"}
+{"event":"new_oa_system_scope_confirmed","date":"2026-10-21","note":"用户确认现有 OA 全部不动，将在飞书全新创建 OA 体系；新 OA 使用名称+版本号，v26 统一代表 2026 年版，示例为利润费用报销 v26。目标是结合旧应用豆包扫描结论、新业务需求及正式组织/应用架构/网盘/通知规范，设计按业务类型分类的 OA 清单、字段控件和审批流程。扫描结论待提供；当前仅处于需求澄清与设计阶段，不修改飞书或现有 OA。"}
+{"event":"new_oa_discussion_only_confirmed","date":"2026-10-21","note":"用户明确本对话只讨论新 OA 体系，不开发应用。已读取 Standard Library 文件夹全部 12 份 Markdown 规范；仅开展需求讨论，不写应用代码、不配置或修改飞书 OA。"}
+{"event":"new_oa_business_needs_read_only_reviewed","date":"2026-10-21","note":"按用户授权只读梳理与光人力、财务、行政、项目、经营，望向山经营中台及镇安协会业务需求。初步识别跨应用重复业务事件并记录模板归并原则；协会会员入会是外部表单+内部核验，不预设为OA。历史需求/旧方案不自动视为新OA定稿。新OA数量约束、豆包扫描结论待确认。仅讨论，无应用代码或飞书OA修改。"}
+{"event":"oa_analysis_spec_final_readonly_review","date":"2026-10-21","note":"OA 分析 Demo spec 在 task/oa-analysis-spec 隔离 worktree 完成两轮独立静态只读复审；handler-only 表示、模板多版本复合键、高置信关联证据、无基线路由诊断、OA 归一化和敏感拒绝粒度问题均已修订，最终未发现剩余 P1，验收编号连续。审阅代理不是正式 Harness 集成审阅。spec 待负责人评审确认；时区、基线适用范围/required=false、导出 schema、Demo 安全约定接受度、名称冲突边界仍是评审项。未编码、未扫描真实 OA、未连接外部服务。"}
+{"event":"expense_intention_light_approval_confirmed","date":"2026-10-21","note":"用户确认不设置采购申请 OA；新增支出意向登记轻审批。个人工作台发起日常费用和小项目，大项目/经营支出从来源应用发起并自动关联项目或应用 ID；低于 200 元由首位负责人审核，达到 200 元通过后送创始人；首位负责人 1 个工作日未处理升级；申请人不得自审；审批人选择申请人自行采购或公司统一采购；采购逾期只提醒；结算支持报销 OA、对公付款 OA、挂账/他人代付（无需公司结算）直接登记结清。任务模块只承载待办、通知、逾期和审计，轻审批对象保留独立状态和台账。"}
+{"event":"task_standards_updated_for_expense_intention","date":"2026-10-21","note":"已更新 Standard Library/任务发布与管理规范-20261020-v1.0.md 与任务接口合同-20261020-v1.0.md，补充支出意向轻审批边界、字段、来源路由、逾期升级、采购方式、结算渠道和独立对象接口；未修改应用代码、飞书配置或现有 OA。"}
+{"event":"oa_handoff_completed","date":"2026-10-21","note":"完成与光工作中台本次交接。项目根目录由 git rev-parse --show-toplevel 确认为 E:\\company-apps\\yuguang-workbench，主分支 main，最近提交为 0a1729a、22d4e7c、1219179。阶段保持为应用开发流程阶段 1：需求澄清与设计；OA spec 在 task/oa-analysis-spec worktree 未提交，未进入实施或编码。用户已确认 Asia/Shanghai 归年、两租户新 OA 体系保持一致、工作台不反向写入飞书 OA、由实施人员人工修改、轻立方为主体且只允许与光发起→轻立方审核、报告值级敏感时禁用预览并继续 JSON 统计。已更新 handoff.md、state.json、board.md、events.jsonl；未运行代码测试、真实扫描、外部服务访问或部署。CTX 未检测。"}
+{"event":"oa_spec_baseline_scope_confirmed","date":"2026-10-21","note":"负责人确认 expectedCatalog 基线同时适用于 lightcube 与 yuguang 两租户，required=false 条目不生成缺失 OA 候选。已更新 OA spec 至 v1.2，并同步 handoff.md、state.json、board.md 和 events.jsonl；仍在阶段 1，未编码、未扫描、未部署，未提交 Git。CTX 未检测。"}
+{"event":"new_oa_system_scan_review_draft","date":"2026-10-22","note":"对照历史新 OA 蓝图、2026 双租户历史 OA 扫描报告和 JSON，形成新OA体系设计方案-2026-扫描复盘版.md。建议 1 种应用内支出意向轻审批、26 种飞书审批 OA，另列 1 个非审批行政服务工单；采购申请 OA 移除，预算 OA 暂缓；OA 只覆盖双租户内部成员，协会会员外部表单不纳入。发现 JSON 字段明细为空、删除模板 50/65 口径冲突，按证据限制标注。阶段 1 待负责人确认；未修改飞书、未开发、未连接外部服务。CTX 未检测。"}

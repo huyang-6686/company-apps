@@ -1,0 +1,46 @@
+node_modules/
+.next/
+.next-localappdata/
+.drizzle-localappdata/
+dist/
+coverage/
+.worktrees/
+.vercel/
+*.tsbuildinfo
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.env
+.envrc
+.envrc.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.secret
+*.token
+secrets/
+credentials/
+
+# Local data, generated packages, and operating-system files
+historical documents/
+deploy/*.tgz
+deploy/*.tar.gz
+uploads/
+storage/
+local-data/
+data/local/
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+.DS_Store
+
+# Local preview server logs
+.next-start.log
+.next-start-err.log
+2. 镇安县生态产业协会管理中台/
+

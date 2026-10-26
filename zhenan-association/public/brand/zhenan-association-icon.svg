@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Zhenan Association</title>
+  <desc id="desc">A clean Z-shaped collaboration path with a single ecological leaf.</desc>
+  <rect width="1024" height="1024" rx="224" fill="#123F39"/>
+  <path d="M238 302h548L294 722h492" fill="none" stroke="#F6F0E4" stroke-width="118" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M653 222c78-72 177-65 221-3-31 99-113 137-201 99-18-8-28-36-20-96Z" fill="#9ACB9C"/>
+  <path d="M682 259c53-18 104-41 151-73" fill="none" stroke="#123F39" stroke-width="17" stroke-linecap="round"/>
+  <circle cx="294" cy="722" r="29" fill="#D9AA4B"/>
+  <circle cx="786" cy="722" r="29" fill="#D9AA4B"/>
+</svg>
